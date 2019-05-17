@@ -1,5 +1,6 @@
 import 'package:flutter_web/material.dart';
 import 'package:zero_hour_web/combination_list_view.dart';
+import 'package:zero_hour_web/credits_widget.dart';
 
 class ElementTabActivity extends StatelessWidget {
   final int index;
@@ -12,11 +13,10 @@ class ElementTabActivity extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Text("Top of list"),
           CombinationListView(
             index: index,
           ),
-          Text("bottime of list"),
+          Credits(),
         ],
       ),
     );
