@@ -8,17 +8,14 @@ class ElementTabActivity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 600,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          CombinationListView(
-            index: index,
-          ),
-          Credits(),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        CombinationListView(
+          index: index,
+        ),
+       
+      ],
     );
   }
 }

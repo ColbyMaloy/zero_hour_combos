@@ -1,4 +1,5 @@
 import 'package:flutter_web/material.dart';
+import 'package:zero_hour_web/credits_widget.dart';
 import 'package:zero_hour_web/element_tab.dart';
 
 class Home extends StatefulWidget {
@@ -39,11 +40,11 @@ class _HomeState extends State<Home> {
       initialIndex: 0,
       length: 3,
       child: Padding(
-        padding: const EdgeInsets.all(50.0),
+        padding: const EdgeInsets.all(25.0),
         child: Card(
           color: Colors.transparent,
           elevation: 50,
-          child: Scaffold(
+          child: Scaffold(floatingActionButton:  Credits(),
             backgroundColor: Color(0xff484c75),
             appBar: AppBar(
               backgroundColor: Color(0xff2e3047),
@@ -60,8 +61,8 @@ class _HomeState extends State<Home> {
                             return Center(
                               child: Card(
                                   child: Container(
-                                width: 500,
-                                height: 500,
+                                width: 400,
+                                height: 400,
                                 child: Image.network(
                                   "https://firebasestorage.googleapis.com/v0/b/zerohour-d1ca6.appspot.com/o/pasted%20image%200.png?alt=media&token=b5fd2cb4-3efe-48f8-a25a-91303a8fa01b",
                                   fit: BoxFit.cover,
@@ -80,6 +81,7 @@ class _HomeState extends State<Home> {
                     },
                   ),
                 ), */
+                
               ],
               bottom: TabBar(
                 tabs: elementTabs,

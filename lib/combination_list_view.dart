@@ -12,27 +12,26 @@ class CombinationListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 600,
-     
-      child: FutureBuilder(
-          future: fetchElement(index),
-          builder: (BuildContext context,
-              AsyncSnapshot<List<ElementDataModel>> items) {
-            if (items.hasData) {
-              return ListView.builder(
+    return FutureBuilder(
+        future: fetchElement(index),
+        builder: (BuildContext context,
+            AsyncSnapshot<List<ElementDataModel>> items) {
+          if (items.hasData) {
+            return Container(
+              height: 600,
+              child: ListView.builder(padding: EdgeInsets.only(bottom: 200),
                 itemCount: items.data.length,
                 itemBuilder: (c, i) {
                   return ElementViewModel(items.data[i]);
                 },
-              );
-            } else {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-          }),
-    );
+              ),
+            );
+          } else {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        });
   }
 }
 

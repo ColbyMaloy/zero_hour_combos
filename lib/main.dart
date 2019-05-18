@@ -6,10 +6,17 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Zero Hour',
-     
-      home: MyHomePage(),
+      initialRoute: '/',
+      routes: {
+       
+        '/': (context) => MyHomePage(),
+        '/n': (context) => MyHomePage(),
+        '/m': (context) => MyHomePage(),
+      
+      },
     );
   }
 }

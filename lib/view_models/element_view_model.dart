@@ -12,7 +12,7 @@ class ElementViewModel extends StatefulWidget {
 
 class _ElementViewModelState extends State<ElementViewModel> {
   Color _color;
-
+  double fontScale= 1.0;
   double fontSize = 20;
 
   //bool _value = true;
@@ -21,98 +21,88 @@ class _ElementViewModelState extends State<ElementViewModel> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    // 
     _color = getContainerColor(widget._model.terminal);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 75,
-      child: Card(
-        color: widget._model.isDone ? Colors.black : _color,
-        child: CheckboxListTile(
-          value: widget._model.isDone,
-          onChanged: (value) {
-            setState(() {
-              widget._model.isDone = !widget._model.isDone;
-              //_value = widget._model.isDone;
-            });
-          },
-          title: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    print( MediaQuery.of(context).size.width);
+    return Card(
+      color: widget._model.isDone ? Colors.black : _color,
+      child: CheckboxListTile(
+        value: widget._model.isDone,
+        onChanged: (value) {
+          setState(() {
+            widget._model.isDone = !widget._model.isDone;
+            //_value = widget._model.isDone;
+          });
+        },
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Container(
-                    width: 100,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Text(
-                          widget._model.c1, textAlign: TextAlign.center,
-                          // overflow: TextOverflow.visible,
-                          style: TextStyle(fontSize: fontSize),
-                        ),
-                        Text(
-                          "TERMINAL 1",
-                          style: TextStyle(
-                              fontStyle: FontStyle.italic, fontSize: 10),
-                        )
-                      ],
-                    )),
-                Container(
-                    width: 100,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Text(
-                          widget._model.c2, textAlign: TextAlign.center,
-                          // overflow: TextOverflow.visible,
-                          style: TextStyle(fontSize: fontSize),
-                        ),
-                        Text(
-                          "TERMINAL 2",
-                          style: TextStyle(
-                              fontStyle: FontStyle.italic, fontSize: 10),
-                        )
-                      ],
-                    )),
-                Container(
-                    width: 100,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Text(
-                          widget._model.c3, textAlign: TextAlign.center,
-                          // overflow: TextOverflow.visible,
-                          style: TextStyle(fontSize: fontSize),
-                        ),
-                        Text(
-                          "TERMINAL 3",
-                          style: TextStyle(
-                              fontStyle: FontStyle.italic, fontSize: 10),
-                        )
-                      ],
-                    )),
-                Container(
-                    width: 100,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Text(
-                          widget._model.terminal, textAlign: TextAlign.center,
-                          // overflow: TextOverflow.visible,
-                          style: TextStyle(fontSize: fontSize),
-                        ),
-                        Text(
-                          "SOLUTION",
-                          style: TextStyle(
-                              fontStyle: FontStyle.italic, fontSize: 10),
-                        )
-                      ],
-                    )),
+                Text(
+                  widget._model.c1, textAlign: TextAlign.center,
+                  // overflow: TextOverflow.visible,
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                Text(
+                  "TERMINAL 1",
+                  style: TextStyle(
+                      fontStyle: FontStyle.italic, fontSize: fontSize/2),
+                )
               ],
             ),
-          ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Text(
+                  widget._model.c2, textAlign: TextAlign.center,
+                  // overflow: TextOverflow.visible,
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                Text(
+                  "TERMINAL 2",
+                  style: TextStyle(
+                      fontStyle: FontStyle.italic, fontSize: fontSize/2),
+                )
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Text(
+                  widget._model.c3, textAlign: TextAlign.center,
+                  // overflow: TextOverflow.visible,
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                Text(
+                  "TERMINAL 3",
+                  style: TextStyle(
+                      fontStyle: FontStyle.italic, fontSize: fontSize/2),
+                )
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Text(
+                  widget._model.terminal, textAlign: TextAlign.center,
+                  // overflow: TextOverflow.visible,
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                Text(
+                  "SOLUTION",
+                  style: TextStyle(
+                      fontStyle: FontStyle.italic, fontSize: fontSize/2),
+                )
+              ],
+            ),
+          ],
         ),
       ),
     );
