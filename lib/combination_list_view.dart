@@ -18,7 +18,7 @@ class CombinationListView extends StatelessWidget {
             AsyncSnapshot<List<ElementDataModel>> items) {
           if (items.hasData) {
             return Container(
-              height: 600,
+              height: MediaQuery.of(context).size.height-100,
               child: ListView.builder(padding: EdgeInsets.only(bottom: 200),
                 itemCount: items.data.length,
                 itemBuilder: (c, i) {
